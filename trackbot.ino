@@ -7,7 +7,7 @@
 // Right (from front of robot) side motor pins 
 const int L4  = 3;    // yellow, d3
 const int L3  = 4;    // orange, d4
-const int E34 = 5     // blue, motor PWM 
+const int E34 = 5;    // blue, motor PWM 
 
 // Left side motor pins
 const int L2  = 7;    // yellow, d7
@@ -40,16 +40,14 @@ void setup() {
 }
 
 void loop() {
-  
-  
-  // left forward
-  // wait 1 sec
-  // left backward
-  // wait 1 sec
-  // right forward
-  // wait 1 sec
-  // right backward
-  // wait 1 sec
+  digitalWrite(L1, LOW);
+  digitalWrite(L2, HIGH);
+  for (int pwm = 0; pwm < 256; pwm++) {
+    analogWrite(E12, pwm);
+    delay(10);
+  }
+  flashOnboardLED();
+  delay(200);
 }
 
 
