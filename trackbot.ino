@@ -8,11 +8,13 @@
 const int L4  = 3;    // yellow, d3
 const int L3  = 4;    // orange, d4
 const int E34 = 5;    // blue, motor PWM 
+const int Left[] = {L4, L3, E34 };
 
 // Left side motor pins
 const int L2  = 7;    // yellow, d7
 const int L1  = 8;    // orange, d8
 const int E12 = 9;    // blue, motor PWM
+const int Right[] = { L2, L1, E12 };
 
 const int onboardLED = 13;
 
@@ -39,11 +41,30 @@ void setup() {
   flashForStartup();
 }
 
+void forwards(const int pins[]) {
+  digitalWrite(pins[0], LOW);
+  digitalWrite(pins[1], HIGH);
+}
+
+void backwards(const int pins[]) {
+  digitalWrite(pins[0], HIGH);
+  digitalWrite(pins[1], LOW);
+}
+
+void speed(const int pins[], int pwmLevel) {
+  analogWrite(pins[2], pwmLevel);
+}
+
 void loop() {
-  digitalWrite(L1, LOW);
-  digitalWrite(L2, HIGH);
+  forwards(Left);
+  
   for (int pwm = 0; pwm < 256; pwm++) {
-    analogWrite(E12, pwm);
+    speed(Left, pwm);
+    delay(10);
+  }
+  backwards(Left);
+  for (int pwm = 0; pwm < 256; pwm++) {
+    speed(Left, pwm);
     delay(10);
   }
   flashOnboardLED();
