@@ -51,22 +51,37 @@ void backwards(const int pins[]) {
   digitalWrite(pins[1], LOW);
 }
 
+void brake(const int pins[]) {
+  digitalWrite(pins[0], LOW);
+  digitalWrite(pins[1], LOW);
+}
 void speed(const int pins[], int pwmLevel) {
   analogWrite(pins[2], pwmLevel);
 }
 
+void fadeUpTo(const int pins[], int maxLevel) {
+  for (int pwm = 0; pwm < maxLevel; pwm++) {
+    speed(pins, pwm);
+    delay(10);
+  }
+}
+
+
 void loop() {
   forwards(Left);
+  fadeUpTo(Left, 64);
   
-  for (int pwm = 0; pwm < 256; pwm++) {
-    speed(Left, pwm);
-    delay(10);
-  }
   backwards(Left);
-  for (int pwm = 0; pwm < 256; pwm++) {
-    speed(Left, pwm);
-    delay(10);
-  }
+  fadeUpTo(Left, 64);
+  brake(Left);
+  
+  forwards(Right);
+  fadeUpTo(Right, 64);
+
+  backwards(Right);
+  fadeUpTo(Right, 64);
+  brake(Right);
+  
   flashOnboardLED();
   delay(200);
 }
