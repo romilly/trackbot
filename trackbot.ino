@@ -4,6 +4,8 @@
 // for Arduino mini pro pinouts see http://arduino.cc/en/uploads/Main/Arduino-Pro-Mini-schematic.pdf
 // for motor control pin names see https://content.solarbotics.com/products/datasheets/solarbotics_l298_compact_motor_driver_kit.pdf
 
+#include <Wire.h>
+
 // Right (from front of robot) side motor pins 
 const int L4  = 3;    // yellow, d3
 const int L3  = 4;    // orange, d4
@@ -31,14 +33,26 @@ void flashForStartup() {
   flashOnboardLED();
 }
 
+// function that executes whenever data is received from master
+// this function is registered as an event, see setup()
+void receiveEvent(int howMany)
+{
+  char x = Wire.read();    // receive byte as a character
+  flashOnboardLED();
+  stuff();
+  
+}
+
 void setup() {
   // digital pins
   pinMode(L1, OUTPUT);
   pinMode(L2, OUTPUT);
   pinMode(L3, OUTPUT);
   pinMode(L4, OUTPUT);
-  
+  Wire.begin(4);                // join i2c bus with address #4
+  Wire.onReceive(receiveEvent);
   flashForStartup();
+  
 }
 
 void forwards(const int pins[]) {
@@ -66,20 +80,23 @@ void fadeUpTo(const int pins[], int maxLevel) {
   }
 }
 
+void loop(){
+}
 
-void loop() {
+
+void stuff() {
   forwards(Left);
-  fadeUpTo(Left, 64);
+  fadeUpTo(Left, 255);
   
   backwards(Left);
-  fadeUpTo(Left, 64);
+  fadeUpTo(Left, 255);
   brake(Left);
   
   forwards(Right);
-  fadeUpTo(Right, 64);
+  fadeUpTo(Right, 255);
 
   backwards(Right);
-  fadeUpTo(Right, 64);
+  fadeUpTo(Right, 255);
   brake(Right);
   
   flashOnboardLED();
