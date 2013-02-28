@@ -39,7 +39,21 @@ void receiveEvent(int howMany)
 {
   char x = Wire.read();    // receive byte as a character
   flashOnboardLED();
-  stuff();
+  do_command(x);
+  
+}
+
+void do_command(char x) {
+  switch(x) {
+    case 'd': dance(); break;
+    case '!': flashOnboardLED(); break;
+    case '.': brake(Left); brake(Right); break;
+    case 'f': forwards(Left); forwards(Right);  speed(Left, 255); speed(Right, 255); break;
+    case 'b': backwards(Left); backwards(Right); speed(Left, 255); speed(Right, 255); break;
+    case 'l': forwards(Left); brake(Right); speed(Left, 255); speed(Right, 0); break;
+    case 'r': brake(Left); forwards(Right); speed(Left, 0); speed(Right, 255); break;
+    default: break;
+  }
   
 }
 
@@ -84,7 +98,9 @@ void loop(){
 }
 
 
-void stuff() {
+void dance() {
+  
+ 
   forwards(Left);
   fadeUpTo(Left, 255);
   
@@ -98,9 +114,8 @@ void stuff() {
   backwards(Right);
   fadeUpTo(Right, 255);
   brake(Right);
-  
-  flashOnboardLED();
   delay(200);
+  
 }
 
 
