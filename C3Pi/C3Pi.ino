@@ -6,14 +6,14 @@
 
 
 // Left side motor pins
-const int L1  = 3;    // yellow, d7
-const int L2  = 4;    // orange, d8
-const int E12 = 5;    // blue, motor PWM
+const int L1  = 4;    // yellow, 
+const int L2  = 5;    // orange, 
+const int E12 = 6;    // blue, motor PWM
 const int Right[] = { L1, L2, E12 };
 
 // Right (from front of robot) side motor pins
-const int L3  = 22;    // orange, d4
-const int L4  = 21;    // yellow, d3
+const int L3  = 22;    // orange, 
+const int L4  = 21;    // yellow, 
 const int E34 = 20;    // blue, motor PWM
 const int Left[] = {L3, L4, E34 };
 
