@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>C3Pi driver</title>
+    <script>
+   var ws = new WebSocket('ws://192.168.1.97:8080/');
+
+   ws.onmessage = function(event) {
+   console.log('Count is: ' + event.data);
+};
+</script>
+</head>
+<body>
+<h1>C3 Pi Driver</h1>
+<p>Use with care!</p>
+</body>
+</html>

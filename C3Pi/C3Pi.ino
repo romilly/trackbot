@@ -2,7 +2,8 @@
  */
 // driver for C3Pi with Teensy 3.0
 // for Teensy 3.0 pinouts see https://www.pjrc.com/teensy/card5a_rev5.pdf
-// for motor control pin names see https://content.solarbotics.com/products/datasheets/solarbotics_l298_compact_motor_driver_kit.pdf
+// for motor control pin names see
+// https://content.solarbotics.com/products/datasheets/solarbotics_l298_compact_motor_driver_kit.pdf
 
 
 // Left side motor pins

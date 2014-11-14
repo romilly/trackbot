@@ -1,5 +1,5 @@
 
-// based on SerialEvent
+
 // created by Romilly Cocking
 // http://www.rareschool.com
 // and placed in the public domain
@@ -17,18 +17,12 @@ boolean reply = false;
 void setup() {
   // initialize serial:
   Serial.begin(9600);
+  delay(10000);
+  Serial.println("Hello");
 }
 
 void loop() {
   // print the string when a newline arrives:
-  if (reply) {
-    int index = (int) random(MAX);
-    Serial.println(greetings[index]);
-    reply = false;
-  }
-}
-
-void serialEvent() {
   while (Serial.available()) {
     // get the new byte:
     char c = (char) Serial.read();
@@ -36,6 +30,12 @@ void serialEvent() {
       reply = true; 
     }  
   }
+  if (reply) {
+    int index = (int) random(MAX);
+    Serial.println(greetings[index]);
+    reply = false;
+  }
 }
+
 
 
