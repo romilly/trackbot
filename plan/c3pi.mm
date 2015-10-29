@@ -215,16 +215,65 @@
 <node TEXT="Plan" ID="ID_20488185" CREATED="1446127894545" MODIFIED="1446127896267">
 <node TEXT="battery" ID="ID_1639188295" CREATED="1446127688207" MODIFIED="1446127690971">
 <node TEXT="use long 6x holder in body" ID="ID_989645532" CREATED="1446125016718" MODIFIED="1446127679212">
-<node TEXT="order more" ID="ID_738393793" CREATED="1446127944254" MODIFIED="1446127947507"/>
+<node TEXT="order more" ID="ID_738393793" CREATED="1446127944254" MODIFIED="1446132138000">
+<icon BUILTIN="button_ok"/>
+</node>
 </node>
 <node TEXT="use rechargeable &gt;= 1000 mAh NiMH" ID="ID_1788732956" CREATED="1446127697558" MODIFIED="1446127729027">
 <node TEXT="find" ID="ID_1027601214" CREATED="1446127913894" MODIFIED="1446127915547">
-<node TEXT="batteries" ID="ID_1494617084" CREATED="1446127916718" MODIFIED="1446127926787"/>
-<node TEXT="charger" ID="ID_104141175" CREATED="1446127919711" MODIFIED="1446127922187"/>
+<node TEXT="batteries" ID="ID_1494617084" CREATED="1446127916718" MODIFIED="1446128227208">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="charger" ID="ID_104141175" CREATED="1446127919711" MODIFIED="1446128230116">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="0rder more" ID="ID_920985606" CREATED="1446128242592" MODIFIED="1446128658307">
+<icon BUILTIN="button_ok"/>
+<richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      12 2000 mAh
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 </node>
 <node TEXT="raise platfrom using m3x50mm screws" ID="ID_267666105" CREATED="1446127784950" MODIFIED="1446127842987">
-<node TEXT="order" ID="ID_398004009" CREATED="1446127904151" MODIFIED="1446127907491"/>
+<node TEXT="order" ID="ID_398004009" CREATED="1446127904151" MODIFIED="1446132142211">
+<icon BUILTIN="button_ok"/>
+</node>
+</node>
+</node>
+<node TEXT="prepare WiFi link" ID="ID_36153094" CREATED="1446132151667" MODIFIED="1446132168843">
+<node TEXT="configure TP-Link" ID="ID_983215131" CREATED="1446132170406" MODIFIED="1446132177467"/>
+<node TEXT="configure Pi" ID="ID_182731285" CREATED="1446132183326" MODIFIED="1446132195075">
+<node TEXT="configure WiFi for home network" ID="ID_1180137425" CREATED="1446132208302" MODIFIED="1446132244644"/>
+<node TEXT="update s/w" ID="ID_1741026884" CREATED="1446132196950" MODIFIED="1446132207867"/>
+<node TEXT="configure for ROBONET" ID="ID_1952802629" CREATED="1446132253134" MODIFIED="1446132315327">
+<icon BUILTIN="messagebox_warning"/>
+<richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      p/w etc in tekipedia, not here!
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 </node>
 </node>
