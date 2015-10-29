@@ -1,5 +1,4 @@
 from quick2wire.i2c import I2CMaster, writing_bytes
-from time import sleep
 address = 0x04
 
 
