@@ -1,16 +1,13 @@
-from quick2wire.i2c import I2CMaster, writing_bytes
-from time import sleep
-address = 0x04
+import serial
 
 
-
-def send_i2c():
-    with I2CMaster() as master:    
+def send():
+      with serial.Serial('/dev/ttyACM0', 9600) as ser:
         while(True):
-            c = input(':')
+            c = raw_input(':')
             if c.startswith('q'):
                 break
-            master.transaction(
-                writing_bytes(address, ord(c[0])))
+            ser.write(c)
 
-send_i2c()
+if __name__ == '__main__':
+    send()
