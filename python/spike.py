@@ -1,5 +1,6 @@
 import serial
 
+# serial version - designed to work with websocketd
 
 def send():
       with serial.Serial('/dev/ttyACM0', 9600) as ser:
